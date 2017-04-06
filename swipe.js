@@ -1,14 +1,12 @@
 /*
- * Swipe 2.0
- *
+ * Swipe 2.0.0
  * Brad Birdsall
- * Copyright 2013, MIT License
+ * https://github.com/thebird/Swipe
+ * Copyright 2013-2015, MIT License
  *
-*/
+ */
 
 function Swipe(container, options) {
-
-  "use strict";
 
   // utilities
   var noop = function() {}; // simple no operation function
@@ -32,6 +30,7 @@ function Swipe(container, options) {
   options = options || {};
   var index = parseInt(options.startSlide, 10) || 0;
   var speed = options.speed || 300;
+  var scrollHold = options.scrollHold || 10; // 当滑动距离大于scrollHold时,才进入scrolling滚动.避免轻微接触时造成的页面震动.
   options.continuous = options.continuous !== undefined ? options.continuous : true;
 
   function setup() {
@@ -298,7 +297,7 @@ function Swipe(container, options) {
       }
 
       // determine if scrolling test has run - one time test
-      if ( typeof isScrolling == 'undefined') {
+      if (typeof isScrolling == 'undefined' && (Math.abs(delta.x) > scrollHold || Math.abs(delta.y) > scrollHold)) {
         isScrolling = !!( isScrolling || Math.abs(delta.x) < Math.abs(delta.y) );
       }
 
@@ -558,13 +557,4 @@ function Swipe(container, options) {
 
 }
 
-
-if ( window.jQuery || window.Zepto ) {
-  (function($) {
-    $.fn.Swipe = function(params) {
-      return this.each(function() {
-        $(this).data('Swipe', new Swipe($(this)[0], params));
-      });
-    }
-  })( window.jQuery || window.Zepto )
-}
+export default Swipe;

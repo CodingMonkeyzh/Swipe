@@ -1,11 +1,14 @@
 {
-  "name": "Swipe",
-  "version": "2.0.0",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-uglify": "~0.2.4"
+  "name": "silk-swipe",
+  "version": "2.0.1",
+  "main": "swipe.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/houyulei/Swipe.git"
   },
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
   "engines": {
     "node": ">=0.8.0"
   }
