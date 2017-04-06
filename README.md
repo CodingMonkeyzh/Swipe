@@ -1,7 +1,16 @@
 >Fork of original [Swipe](https://github.com/thebird/Swipe).
+
 做了两个修改:
 1. ES6模块导出
 2. 新加参数scrollHold,当滑动距离大于scrollHold时,才进入scrolling滚动.避免轻微接触时造成的页面震动.
+
+``` bash
+npm install silk-swipe
+```
+
+``` js
+import Swipe from 'silk-swipe';
+```
 
 ## Usage
 Swipe only needs to follow a simple pattern. Here is an example:

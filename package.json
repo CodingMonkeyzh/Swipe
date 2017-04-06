@@ -1,14 +1,19 @@
 {
   "name": "silk-swipe",
-  "version": "2.0.1",
-  "main": "swipe.js",
+  "version": "2.0.3",
+  "main": "lib/swipe.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/houyulei/Swipe.git"
   },
   "license": "MIT",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2"
+  },
   "engines": {
     "node": ">=0.8.0"
   }

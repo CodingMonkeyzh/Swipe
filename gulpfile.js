@@ -8,30 +8,16 @@ const clean = require('gulp-clean');
 const babel = require('gulp-babel');
 
 gulp.task('clean', () =>
-    gulp.src(['./lib'], {read: false})
-        .pipe(clean())
+  gulp.src(['./lib'], {read: false})
+    .pipe(clean())
 )
 
 gulp.task('babel', ['clean'], () =>
-    gulp.src(['./components/**/*.jsx',
-            './components/**/*.js'])
-        .pipe(babel({
-            presets: ['react', 'es2015', 'stage-0'],
-            plugins: ['transform-runtime', 'transform-decorators-legacy']
-        }))
-        .pipe(gulp.dest('./lib'))
+  gulp.src(['swipe.js'])
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./lib'))
 )
 
-gulp.task('move', ['clean'], () =>
-    gulp.src(['./components/**/*.scss',
-            './components/**/*.css',
-            './components/**/*.png',
-            './components/**/*.eot',
-            './components/**/*.svg',
-            './components/**/*.ttf',
-            './components/**/*.woff',
-            './components/**/*.json'])
-        .pipe(gulp.dest('./lib'))
-)
-
-gulp.task('default', ['babel', 'move'])
+gulp.task('default', ['babel'])
